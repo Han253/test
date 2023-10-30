@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        #my_table {
+            border-collapse:collapse;
+            border: none;
+        }
+
+        #my_table td,#my_table th{
+            border: 1px solid;
+            padding:5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addData();">Add Data</button>
+    <button onclick="deleteData();">Delete Data</button>
+    <br><br>
+    <table id="my_table">
+        <tr>
+            <th>Text</th>
+            <th>Number</th>
+        </tr>
+    </table>
+    
+    
+
+    <script>
+
+        let table = document.getElementById("my_table");
+
+        function addData(){
+            let row = table.insertRow(-1);
+            let c1 = row.insertCell(0);
+            let c2 = row.insertCell(1);
+
+            c1.innerText = "Funciona";
+            c2.innerText = Math.floor(Math.random()*10);
+        }
+
+        function deleteData(){
+            console.log(table.rows.length);
+            for(var i=table.rows.length;i>1;i--){
+                table.deleteRow(-1);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
